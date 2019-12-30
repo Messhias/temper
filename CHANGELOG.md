@@ -1,5 +1,15 @@
-### manifest (HEAD -> dev)
+### manifest
 >Tue, 31 Dec 2019 01:32:31 +0400
+
+>Author: Fabio William Conceição (fabio@viame.ae)
+
+>Commiter: Fabio William Conceição (fabio@viame.ae)
+
+
+
+
+### created the frontend scaffolding (origin/feature/frontend-react, feature/frontend-react)
+>Tue, 31 Dec 2019 00:27:48 +0400
 
 >Author: Fabio William Conceição (fabio@viame.ae)
 

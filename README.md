@@ -145,6 +145,13 @@ the npm packages I still facing issues of compatibility about "in my machine wor
 
 Use yarn and work in everywhere without headache (like [Docker](https://docker.com)). 
 
+## I still want to use npm?
+
+
+Well, you need change all the **yarn**  references in [package.json](./package.json) and 
+it's done.
+
+
 # Having troubles / bad time?
 
 [Open a issue](https://github.com/Messhias/temper/issues/new)

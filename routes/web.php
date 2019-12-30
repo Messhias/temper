@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/**
+ * Wild card for react app.
+ */
+Route::view('/{path?}', 'app');
+
