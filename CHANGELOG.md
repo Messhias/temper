@@ -1,3 +1,23 @@
+### added the backend default resources, controllers and skeleton (HEAD -> feature/backend)
+>Tue, 31 Dec 2019 07:40:41 +0400
+
+>Author: Fabio William Conceição (fabio@viame.ae)
+
+>Commiter: Fabio William Conceição (fabio@viame.ae)
+
+
+
+
+### added the backend architecture (origin/feature/backend)
+>Tue, 31 Dec 2019 01:50:15 +0400
+
+>Author: Fabio William Conceição (fabio@viame.ae)
+
+>Commiter: Fabio William Conceição (fabio@viame.ae)
+
+
+
+
 ### manifest
 >Tue, 31 Dec 2019 01:32:31 +0400
 
