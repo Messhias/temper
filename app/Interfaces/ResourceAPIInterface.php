@@ -13,7 +13,9 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 /**
- * Interface class contract to set up all the minimal requirements for create a resource controller
+ * Interface class contract to set up all the minimal requirements for create a Resource API.
+ * Works as the same way as the repository interface, but the difference on this one it's the contract between controller,
+ * repository to return the data trough the API.
  *
  * Interface ResourceAPIInterface
  * @package App\Interfaces

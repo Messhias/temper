@@ -124,7 +124,7 @@ abstract class ResourceAPIController implements ResourceAPIInterface
                     $request->input($this->getKeyIdentifier())),
                 "success" => true,
                 "code" => 201,
-                "message" => $this->createMessage()
+                "message" => "{$this->getPluralIdentifier()} - {$this->createMessage()}"
                 ],
                 201
             );
@@ -153,7 +153,7 @@ abstract class ResourceAPIController implements ResourceAPIInterface
         try
         {
             return response()->json([
-                "message" => $this->foundMessage(),
+                "message" => "{$this->getPluralIdentifier()} - {$this->foundMessage()}",
                 "data" => $this->getRepository()->find($id),
                 "success" => true,
                 "code" => 200
@@ -184,7 +184,7 @@ abstract class ResourceAPIController implements ResourceAPIInterface
                     ),
                     "success" => true,
                     "code" => 200,
-                    "message" => $this->foundMessage()
+                    "message" => "{$this->getPluralIdentifier()} - {$this->foundMessage()}"
                 ], 200
             );
         }
@@ -218,7 +218,7 @@ abstract class ResourceAPIController implements ResourceAPIInterface
                         $request->input($this->getKeyIdentifier())),
                     "success" => true,
                     "code" => 200,
-                    "message" => $this->updateMessage(),
+                    "message" => "{$this->getPluralIdentifier()} - {$this->updateMessage()}",
                 ], 200
             );
         }
@@ -247,7 +247,7 @@ abstract class ResourceAPIController implements ResourceAPIInterface
                 "data" => $this->getRepository()->delete($id),
                 "success" => true,
                 "code" => 200,
-                "message" => $this->deletedMessage(),
+                "message" => "{$this->getPluralIdentifier()} - {$this->deletedMessage()}",
             ], 200);
         }
         catch (GenericException $exception)
@@ -274,7 +274,7 @@ abstract class ResourceAPIController implements ResourceAPIInterface
             return response()->json([
                 "data" => $this->getRepository()->login(
                 $request->input($this->getKeyIdentifier())),
-                "message" => $this->genericMessage(),
+                "message" => "{$this->getPluralIdentifier()} - {$this->genericMessage()}",
                 "code" => 200,
                 "success" => true,
             ], 200);
@@ -308,7 +308,7 @@ abstract class ResourceAPIController implements ResourceAPIInterface
                         ),
                     "success" => true,
                     "code" => 201,
-                    "message" => "Registration complete",
+                    "message" => "{$this->getSingularIdentifier()} - Complete",
                 ], 201);
         }
         catch (ValidationException $exception)
@@ -346,7 +346,7 @@ abstract class ResourceAPIController implements ResourceAPIInterface
                     ),
                     "success" => true,
                     "code" => 200,
-                    "message" => $this->foundMessage(),
+                    "message" => "{$this->getPluralIdentifier()} - {$this->foundMessage()}",
                 ], 200);
         }
         catch (\Exception $exception)
@@ -370,7 +370,7 @@ abstract class ResourceAPIController implements ResourceAPIInterface
                         ->default_pagination(),
                     "success" => true,
                     "code" => 200,
-                    "message" => $this->foundMessage(),
+                    "message" => "{$this->getPluralIdentifier()} - {$this->foundMessage()}",
                 ]);
         }
         catch (\Exception $exception)

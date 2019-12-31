@@ -10,6 +10,16 @@
 namespace App\Interfaces;
 
 
+/**
+ * Default repository interface which it'll gonna create a contract
+ * between repository and model.
+ *
+ * In that once the repository implements that interface it'll automatically create a contract
+ * to be implemented the default models operations (create, find, delete, get and etc...).
+ *
+ * Interface RepositoryInterface
+ * @package App\Interfaces
+ */
 interface RepositoryInterface
 {
     /**

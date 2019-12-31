@@ -2,14 +2,12 @@
 
 - [Linux environment](https://www.linux.org/).
 - [Docker](https://www.docker.com/).
-- [PHP latest version](https://www.php.net/).
+- [PHP latest version, 7.4+](https://www.php.net/).
 - [MySQL latest version](https://www.mysql.com/).
 - [Yarn](https://yarnpkg.com/lang/en/) (recommend) or [NPM](https://www.npmjs.com/).
 - [Node](https://nodejs.org/en/).
 
-
 ## Running by the easiest way (Docker)
-
 
 Just type ```docker-compose up -d --build``` to build all the containers 
 in *detach* mode, but if you want to see the logs on your terminal you can type 

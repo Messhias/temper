@@ -14,6 +14,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Container\Container as App;
 
 /**
+ * Default eloquent repository class which extends the contracts of the RepositoryInterface to handle
+ * all the commons operations between models and repositories.
+ *
  * Class RepositoryEloquent
  * @package App\Repositories
  */
