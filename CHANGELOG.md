@@ -1,4 +1,14 @@
-### added the backend default resources, controllers and skeleton (HEAD -> feature/backend)
+### created the scratch graphics (HEAD -> frontend/highcharts)
+>Wed, 1 Jan 2020 21:44:19 +0400
+
+>Author: Fabio William Conceição (fabio@viame.ae)
+
+>Commiter: Fabio William Conceição (fabio@viame.ae)
+
+
+
+
+### added the backend default resources, controllers and skeleton (origin/feature/backend, feature/backend)
 >Tue, 31 Dec 2019 07:40:41 +0400
 
 >Author: Fabio William Conceição (fabio@viame.ae)
@@ -8,7 +18,7 @@
 
 
 
-### added the backend architecture (origin/feature/backend)
+### added the backend architecture
 >Tue, 31 Dec 2019 01:50:15 +0400
 
 >Author: Fabio William Conceição (fabio@viame.ae)
