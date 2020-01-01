@@ -1,5 +1,15 @@
-### added manifest mixin (HEAD -> dev)
+### added manifest mixin
 >Wed, 1 Jan 2020 21:45:57 +0400
+
+>Author: Fabio William Conceição (fabio@viame.ae)
+
+>Commiter: Fabio William Conceição (fabio@viame.ae)
+
+
+
+
+### created the scratch graphics (origin/frontend/highcharts, frontend/highcharts)
+>Wed, 1 Jan 2020 21:44:19 +0400
 
 >Author: Fabio William Conceição (fabio@viame.ae)
 

@@ -1,27 +1,137 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-// importing the default css
-import "../../sass/app.scss";
+import Highcharts from 'highcharts'
+import HighchartsReact from 'highcharts-react-official'
 
-function App() {
-    return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">Example Component</div>
-                        <div className="card-body">I'm an example component!</div>
+const options = {
+    title: {
+        text: 'WEEKLY RETENTION CURVES - MIXPANEL DATA',
+    },
+
+    yAxis: {
+        title: {
+            text: ["0%", "25%", "50%", "75%", "100%"]
+        }
+    },
+
+    xAxis: {
+        accessibility: {
+            rangeDescription: 'WEEKLY RETENTION CURVES - MIXPANEL DATA'
+        }
+    },
+
+    legend: {
+        maxHeight: 60,
+        enabled: true,
+        align: 'left',
+        verticalAlign: 'top',
+        layout: 'horizontal',
+        navigation: {
+            style: {
+                position: "right"
+            }
+        }
+    },
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            pointStart: new Date().getFullYear()
+        }
+    },
+
+    series: series(),
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'top',
+                    verticalAlign: 'top',
+                }
+            }
+        }]
+    }
+};
+
+function series() {
+
+    return [
+        {
+            name: 'Installation',
+            data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+        }, {
+            name: 'Manufacturing',
+            data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+        }, {
+            name: 'Sales & Distribution',
+            data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
+        }, {
+            name: 'Project Development',
+            data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
+        }, {
+            name: 'Other',
+            data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
+        },{
+            name: 'Installation',
+            data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+        }, {
+            name: 'Manufacturing',
+            data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+        }, {
+            name: 'Sales & Distribution',
+            data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
+        }, {
+            name: 'Project Development',
+            data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
+        }, {
+            name: 'Other',
+            data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
+        }
+    ];
+}
+
+
+export default class App extends Component {
+    render() {
+        return (
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-md-8">
+                        <div className="card">
+                            <div className="card-body">
+                                <HighchartsReact
+                                    highcharts={Highcharts}
+                                    options={options}
+                                    allowChartUpdate = { true }
+                                    immutable = { false }
+                                    updateArgs = { [true, true, true] }
+                                    containerProps = {{ className: 'chartContainer' }}
+                                />
+                                <HighchartsReact
+                                    highcharts={Highcharts}
+                                    options={options}
+                                    allowChartUpdate = { true }
+                                    immutable = { false }
+                                    updateArgs = { [true, true, true] }
+                                    containerProps = {{ className: 'chartContainer' }}
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
-export default App;
-
-console.log("aqui");
 if (document.getElementById('root')) {
     ReactDOM.render(<App />, document.getElementById('root'));
 }
