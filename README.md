@@ -30,6 +30,27 @@ you're running at moment and
 check which container is attached to a web port in 80 and 443 and stop 
 it and remove the network attached on it.
 
+1 - Tip
+
+Sometimes the docker machine could have issues with your current containers and networks. 
+This is normal when you have a lot containers running at the same time using the same
+network interface sharing between them.
+
+ 
+If you have any database volumes I suggest to you backup them (if you not set up 
+your volumes locally) and remove all the conflicting containers based on their container
+ID which you can get by ``docker ps``.
+
+But if you want remove all without picking anything specific you can run the command:
+
+```docker system prune -a``` amd choose the option `Y`.
+
+2 - Tip – composer issue.
+
+If you having issues when run ``docker-compose run --rm composer composer install | update 
+| require`` commands because of the latest versions of composer just run the command 
+``docker-compose run --rm composer composer <command> -vvv``.
+
 ## For those don't want docker approach
 
 You need install this packages:
