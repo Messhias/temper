@@ -1,4 +1,14 @@
-### CI name changed (HEAD -> master)
+### removed the key generation for CI since it is already specified on .env.example (HEAD -> master)
+>Sat, 4 Jan 2020 08:41:54 +0400
+
+>Author: Fabio William Conceição (fabio@viame.ae)
+
+>Commiter: Fabio William Conceição (fabio@viame.ae)
+
+
+
+
+### CI name changed (origin/master)
 >Sat, 4 Jan 2020 08:40:12 +0400
 
 >Author: Fabio William Conceição (fabio@viame.ae)
@@ -8,7 +18,7 @@
 
 
 
-### CI changed (origin/master)
+### CI changed
 >Sat, 4 Jan 2020 08:39:50 +0400
 
 >Author: Fabio William Conceição (fabio@viame.ae)

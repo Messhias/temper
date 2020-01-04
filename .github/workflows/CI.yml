@@ -11,9 +11,7 @@ jobs:
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
       run: composer install --ignore-platform-reqs -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
-    - name: Generate key
-      run: php artisan key:generate
-    - name: Create Database
+    - name: Create Test Database
       run: |
         mkdir -p database
         touch database/database.sqlite
