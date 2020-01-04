@@ -1,4 +1,14 @@
-### created backend report (HEAD -> backend/report)
+### ploted hightcharts with the backend API (HEAD -> frontend/highcharts)
+>Fri, 3 Jan 2020 17:28:17 +0400
+
+>Author: Fabio William Conceição (fabio@viame.ae)
+
+>Commiter: Fabio William Conceição (fabio@viame.ae)
+
+
+
+
+### created backend report (origin/backend/report, backend/report)
 >Fri, 3 Jan 2020 11:33:27 +0400
 
 >Author: Fabio William Conceição (fabio@viame.ae)
@@ -18,7 +28,7 @@
 
 
 
-### created the scratch graphics (origin/frontend/highcharts, frontend/highcharts)
+### created the scratch graphics
 >Wed, 1 Jan 2020 21:44:19 +0400
 
 >Author: Fabio William Conceição (fabio@viame.ae)

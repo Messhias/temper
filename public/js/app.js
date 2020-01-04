@@ -69409,6 +69409,151 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/components/Charts/WeeklyRetention.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/Charts/WeeklyRetention.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var highcharts_react_official__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! highcharts-react-official */ "./node_modules/highcharts-react-official/dist/highcharts-react.min.js");
+/* harmony import */ var highcharts_react_official__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(highcharts_react_official__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var highcharts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! highcharts */ "./node_modules/highcharts/highcharts.js");
+/* harmony import */ var highcharts__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(highcharts__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _utils_Functions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/Functions */ "./resources/js/components/utils/Functions.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+/**
+ * @file     WeeklyRetention.js
+ * @author   Fabio William Conceição <messhias@gmail.com>
+ * @since    03/01/2020
+ * @version  1.0
+ */
+
+
+
+
+/**
+ * mount the chart options data
+ * @param data
+ * @returns {{yAxis: {title:
+ * {text: [string, string, string, string, string]}},
+ * xAxis: {accessibility: {rangeDescription: string}},
+ * legend: {layout: string, verticalAlign: string, navigation: {
+ * style: {position: string}},
+ * maxHeight: number, align: string, enabled: boolean}, series: [],
+ * responsive: {rules: [{chartOptions: {legend: {layout: string, verticalAlign: string, align: string}},
+ * condition: {maxWidth: number}}]}, title: {text: string}}}
+ */
+
+function mountOptions(data) {
+  return {
+    title: {
+      text: 'WEEKLY RETENTION CURVES - MIXPANEL DATA'
+    },
+    yAxis: {
+      title: {
+        text: ["0%", "25%", "50%", "75%", "100%"]
+      }
+    },
+    xAxis: {
+      accessibility: {
+        rangeDescription: 'WEEKLY RETENTION CURVES - MIXPANEL DATA'
+      }
+    },
+    legend: {
+      maxHeight: 60,
+      enabled: true,
+      align: 'left',
+      verticalAlign: 'top',
+      layout: 'horizontal',
+      navigation: {
+        style: {
+          position: "right"
+        }
+      }
+    },
+    series: series(data),
+    responsive: {
+      rules: [{
+        condition: {
+          maxWidth: 500
+        },
+        chartOptions: {
+          legend: {
+            layout: 'horizontal',
+            align: 'top',
+            verticalAlign: 'top'
+          }
+        }
+      }]
+    }
+  };
+}
+/**
+ * Create the series function to be show on the chart data.
+ *
+ * @param data
+ * @returns {[]}
+ */
+
+
+function series() {
+  var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+  var seriesResult = [];
+
+  for (var _i = 0, _Object$entries = Object.entries(data); _i < _Object$entries.length; _i++) {
+    var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+        key = _Object$entries$_i[0],
+        value = _Object$entries$_i[1];
+
+    var seriesData = Object(_utils_Functions__WEBPACK_IMPORTED_MODULE_3__["filterArray"])(value.map(function (val) {
+      return parseInt(val.onboarding_perentage);
+    }));
+    seriesResult.push({
+      name: key,
+      data: Array.from(new Set(seriesData.sort(function (a, b) {
+        return b - a;
+      })))
+    });
+  }
+
+  return seriesResult;
+}
+/**
+ * Return the chart mounted accordingly with the specifications.
+ *
+ * @stateless
+ * @param props
+ * @returns {*}
+ */
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(highcharts_react_official__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    highcharts: highcharts__WEBPACK_IMPORTED_MODULE_2___default.a,
+    options: mountOptions(props.report),
+    allowChartUpdate: true,
+    immutable: false,
+    updateArgs: [true, true, true],
+    containerProps: {
+      className: 'chartContainer'
+    }
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/components/index.js":
 /*!******************************************!*\
   !*** ./resources/js/components/index.js ***!
@@ -69427,6 +69572,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var highcharts__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(highcharts__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var highcharts_react_official__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! highcharts-react-official */ "./node_modules/highcharts-react-official/dist/highcharts-react.min.js");
 /* harmony import */ var highcharts_react_official__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(highcharts_react_official__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _requests__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./requests */ "./resources/js/components/requests/index.js");
+/* harmony import */ var _Charts_WeeklyRetention__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Charts/WeeklyRetention */ "./resources/js/components/Charts/WeeklyRetention.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -69448,106 +69595,60 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+ // importing the requests.
 
-var options = {
-  title: {
-    text: 'WEEKLY RETENTION CURVES - MIXPANEL DATA'
-  },
-  yAxis: {
-    title: {
-      text: ["0%", "25%", "50%", "75%", "100%"]
-    }
-  },
-  xAxis: {
-    accessibility: {
-      rangeDescription: 'WEEKLY RETENTION CURVES - MIXPANEL DATA'
-    }
-  },
-  legend: {
-    maxHeight: 60,
-    enabled: true,
-    align: 'left',
-    verticalAlign: 'top',
-    layout: 'horizontal',
-    navigation: {
-      style: {
-        position: "right"
-      }
-    }
-  },
-  plotOptions: {
-    series: {
-      label: {
-        connectorAllowed: false
-      },
-      pointStart: new Date().getFullYear()
-    }
-  },
-  series: series(),
-  responsive: {
-    rules: [{
-      condition: {
-        maxWidth: 500
-      },
-      chartOptions: {
-        legend: {
-          layout: 'horizontal',
-          align: 'top',
-          verticalAlign: 'top'
-        }
-      }
-    }]
-  }
-};
+ // importing the components.
 
-function series() {
-  return [{
-    name: 'Installation',
-    data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-  }, {
-    name: 'Manufacturing',
-    data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
-  }, {
-    name: 'Sales & Distribution',
-    data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
-  }, {
-    name: 'Project Development',
-    data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-  }, {
-    name: 'Other',
-    data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-  }, {
-    name: 'Installation',
-    data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-  }, {
-    name: 'Manufacturing',
-    data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
-  }, {
-    name: 'Sales & Distribution',
-    data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
-  }, {
-    name: 'Project Development',
-    data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-  }, {
-    name: 'Other',
-    data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-  }];
-}
+
 
 var App =
 /*#__PURE__*/
 function (_Component) {
   _inherits(App, _Component);
 
-  function App() {
+  function App(props) {
+    var _this;
+
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(App).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
+    _this.state = {
+      data: []
+    };
+
+    _this.fetchReportData();
+
+    return _this;
   }
 
   _createClass(App, [{
+    key: "fetchReportData",
+    value: function fetchReportData() {
+      var _this2 = this;
+
+      _requests__WEBPACK_IMPORTED_MODULE_4__["default"].Reports.Get().then(function (response) {
+        var _response$status = response.status,
+            status = _response$status === void 0 ? 500 : _response$status;
+
+        if (status === 200) {
+          var _response$data$data = response.data.data,
+              data = _response$data$data === void 0 ? false : _response$data$data;
+
+          if (data) {
+            _this2.setState({
+              data: data
+            });
+          }
+        }
+      })["catch"](function (error) {
+        return console.error(error);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this$state$data = this.state.data,
+          data = _this$state$data === void 0 ? [] : _this$state$data;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -69558,25 +69659,20 @@ function (_Component) {
         className: "card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(highcharts_react_official__WEBPACK_IMPORTED_MODULE_3___default.a, {
-        highcharts: highcharts__WEBPACK_IMPORTED_MODULE_2___default.a,
-        options: options,
-        allowChartUpdate: true,
-        immutable: false,
-        updateArgs: [true, true, true],
-        containerProps: {
-          className: 'chartContainer'
-        }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(highcharts_react_official__WEBPACK_IMPORTED_MODULE_3___default.a, {
-        highcharts: highcharts__WEBPACK_IMPORTED_MODULE_2___default.a,
-        options: options,
-        allowChartUpdate: true,
-        immutable: false,
-        updateArgs: [true, true, true],
-        containerProps: {
-          className: 'chartContainer'
-        }
-      }))))));
+      }, App.mountWeeklyRetentionGraph(data))))));
+    }
+  }], [{
+    key: "mountWeeklyRetentionGraph",
+    value: function mountWeeklyRetentionGraph() {
+      var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+      if (!data) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "So far no reports found.");
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Charts_WeeklyRetention__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          report: data
+        });
+      }
     }
   }]);
 
@@ -69588,6 +69684,167 @@ function (_Component) {
 if (document.getElementById('root')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('root'));
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/requests/Reports/Get.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/requests/Reports/Get.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utils_Request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/Request */ "./resources/js/components/utils/Request.js");
+/**
+ * @file     Get.js
+ * @author   Fabio William Conceição <messhias@gmail.com>
+ * @since    03/01/2020
+ * @version  1.0
+ */
+
+/**
+ * Request the information from api.
+ *
+ * @request
+ * @return <Promise>
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  return _utils_Request__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/users/reports");
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/requests/Reports/index.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/requests/Reports/index.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Get__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Get */ "./resources/js/components/requests/Reports/Get.js");
+/**
+ * @file     index.js
+ * @author   Fabio William Conceição <messhias@gmail.com>
+ * @since    03/01/2020
+ * @version  1.0
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  Get: _Get__WEBPACK_IMPORTED_MODULE_0__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/requests/index.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/requests/index.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Reports__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Reports */ "./resources/js/components/requests/Reports/index.js");
+/**
+ * @file     index.js
+ * @author   Fabio William Conceição <messhias@gmail.com>
+ * @since    03/01/2020
+ * @version  1.0
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  Reports: _Reports__WEBPACK_IMPORTED_MODULE_0__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/utils/Functions.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/utils/Functions.js ***!
+  \****************************************************/
+/*! exports provided: filterArray */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterArray", function() { return filterArray; });
+/**
+ * @file     Functions.js
+ * @author   Fabio William Conceição <messhias@gmail.com>
+ * @since    03/01/2020
+ * @version  1.0
+ */
+
+/**
+ * Filtering array removing null, undefined, ' ', NaN values.
+ *
+ * @param test_array
+ */
+function filterArray(test_array) {
+  var index = -1,
+      arr_length = test_array ? test_array.length : 0,
+      resIndex = -1,
+      result = [];
+
+  while (++index < arr_length) {
+    var value = test_array[index];
+
+    if (value) {
+      result[++resIndex] = value;
+    }
+  }
+
+  return result;
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/utils/Request.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/utils/Request.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+/**
+ * Options for request.
+ *
+ * @INFO -> if you need change the default requests handlers be auth just switch the param
+ * withCredentials to true.
+ *
+ * @INFO -> if you want to use your dev ser in baseURL just change the getDevServer() and it's done,
+ * @INFO -> if you want to change the endpoint of your dev ser go to Env.js file and change the const dev_server to your
+ * respective URL endpoint.
+ *
+ * @type {{baseURL: (never|*), withCredentials: boolean, timeout: number}}
+ */
+
+var options = {
+  baseURL: "http://localhost/",
+  withCredentials: false,
+  headers: {
+    'Content-Type': 'application/json'
+  }
+};
+var instance = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create(options);
+
+instance.parseParams = function (params) {
+  return Object.keys(params).map(function (key) {
+    return [key, params[key]].map(encodeURIComponent).join("=");
+  }).join("&");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (instance);
 
 /***/ }),
 

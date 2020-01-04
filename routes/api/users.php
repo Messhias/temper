@@ -16,33 +16,33 @@ Route::group([
      *
      * @return \Illuminate\Routing\Route
      */
-    Route::get("/", "UsersReportsController@get");
+    Route::get("/reports", "UsersReportsController@get");
 
     /**
      * Create a new user report
      *
      * @return \Illuminate\Routing\Route
      */
-    Route::post("/", "UsersReportsController@post");
+    Route::post("/reports", "UsersReportsController@post");
 
     /**
      * Update a new user route.
      *
      * @return \Illuminate\Routing\Route
      */
-    Route::put("/", "UsersReportsController@update");
+    Route::put("/reports/{id}", "UsersReportsController@update");
 
     /**
      * Find a specific route stored by it id
      *
      * @return \Illuminate\Routing\Route
      */
-    Route::get("/{id}", "UsersReportsController@update");
+    Route::get("/reports/{id}", "UsersReportsController@update");
 
     /**
      * Delete a user report
      *
      * @return \Illuminate\Routing\Route
      */
-    Route::delete("/{id}", "UsersReportsController@delete");
+    Route::delete("/reports/{id}", "UsersReportsController@delete");
 });
