@@ -1,4 +1,8 @@
-# Requirements
+# Read before start (don't skip it!!).
+
+Before you start the project, download and start contributing it's nice to you read this first guidelines and whole README.md file to assure that you have all the necessary set up to work with it and don't waste your time openning issues tickets (since for now I'm only the maintainer so you could have a significally delay in the answer).
+
+Bellow you'll found 
 
 - [Linux environment](https://www.linux.org/) (recommend), if you choose windows maybe you'll have a bad time to install the PHP Extensions.
 - [Docker](https://www.docker.com/) (recommend), same reason as peer Linux Env..
@@ -54,9 +58,13 @@ If you having issues when run ``docker-compose run --rm composer composer instal
 
 ## For those don't want docker approach
 
+Even for those choose go trough the [Docker](https://docker.com) approach this packages it'll be installed, but it'll be automatically by the Dockerfile especifications and configured automatically for you.
+
+So again I would like to recommend to go trough Docker approach, it's tested and it'll work in any kind of computer since it's supported to run the Docker.
+
 You need install this packages:
 - [PHP 7.4](php.net) and the 
-[MySQL (latest preferaly)](https://www.mysql.com/).
+[MySQL (optional, latest preferaly)](https://www.mysql.com/).
 - [Yarn](https://yarnpkg.com/lang/en/) and the 
 [Node](https://nodejs.org/en/).
 
