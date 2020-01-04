@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   laravel-tests:
-    runs-on: php:7.4
+    runs-on: php:7.4-fpm
     steps:
     - uses: actions/checkout@v1
     - name: Copy .env

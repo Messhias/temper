@@ -1,4 +1,14 @@
-### changed the CI for PHP 7.4 image (HEAD -> master)
+### added image php fpm (HEAD -> master)
+>Sat, 4 Jan 2020 08:49:35 +0400
+
+>Author: Fabio William Conceição (fabio@viame.ae)
+
+>Commiter: Fabio William Conceição (fabio@viame.ae)
+
+
+
+
+### changed the CI for PHP 7.4 image (origin/master)
 >Sat, 4 Jan 2020 08:46:12 +0400
 
 >Author: Fabio William Conceição (fabio@viame.ae)
@@ -8,7 +18,7 @@
 
 
 
-### removed the key generation for CI since it is already specified on .env.example (origin/master)
+### removed the key generation for CI since it is already specified on .env.example
 >Sat, 4 Jan 2020 08:41:54 +0400
 
 >Author: Fabio William Conceição (fabio@viame.ae)
