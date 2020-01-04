@@ -2,9 +2,9 @@ version: '3.4'
 
 services:
   web:
-    container_name: web_contacts_list
+    container_name: web_temper
     restart: always
-    image: nginx
+    image: nginx:latest
     ports:
       - "80:80"
       - "443:443"
@@ -15,7 +15,7 @@ services:
       - php:php
 
   php:
-    container_name: php_contacts_list
+    container_name: php_temper
     restart: always
     build:
       context: ./
@@ -27,7 +27,7 @@ services:
       - redis
 
   composer:
-    container_name: composer_contacts_list
+    container_name: composer_temper
     image: composer:latest
 #    command: install -vvv
     command: composer install --ignore-platform-reqs # run the installation inside the context container
@@ -52,5 +52,5 @@ services:
 
 
   redis:
-    container_name: redis_contacts_list
+    container_name: redis_temper
     image: redis:latest

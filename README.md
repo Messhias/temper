@@ -2,14 +2,12 @@
 
 - [Linux environment](https://www.linux.org/).
 - [Docker](https://www.docker.com/).
-- [PHP latest version](https://www.php.net/).
+- [PHP latest version, 7.4+](https://www.php.net/).
 - [MySQL latest version](https://www.mysql.com/).
 - [Yarn](https://yarnpkg.com/lang/en/) (recommend) or [NPM](https://www.npmjs.com/).
 - [Node](https://nodejs.org/en/).
 
-
 ## Running by the easiest way (Docker)
-
 
 Just type ```docker-compose up -d --build``` to build all the containers 
 in *detach* mode, but if you want to see the logs on your terminal you can type 
@@ -31,6 +29,27 @@ run ```docker ps``` to check which running containers
 you're running at moment and 
 check which container is attached to a web port in 80 and 443 and stop 
 it and remove the network attached on it.
+
+1 - Tip
+
+Sometimes the docker machine could have issues with your current containers and networks. 
+This is normal when you have a lot containers running at the same time using the same
+network interface sharing between them.
+
+ 
+If you have any database volumes I suggest to you backup them (if you not set up 
+your volumes locally) and remove all the conflicting containers based on their container
+ID which you can get by ``docker ps``.
+
+But if you want remove all without picking anything specific you can run the command:
+
+```docker system prune -a``` amd choose the option `Y`.
+
+2 - Tip – composer issue.
+
+If you having issues when run ``docker-compose run --rm composer composer install | update 
+| require`` commands because of the latest versions of composer just run the command 
+``docker-compose run --rm composer composer <command> -vvv``.
 
 ## For those don't want docker approach
 
@@ -144,6 +163,13 @@ Anyway you can use ``npm install `` command, but as per current date
 the npm packages I still facing issues of compatibility about "in my machine works".
 
 Use yarn and work in everywhere without headache (like [Docker](https://docker.com)). 
+
+## I still want to use npm?
+
+
+Well, you need change all the **yarn**  references in [package.json](./package.json) and 
+it's done.
+
 
 # Having troubles / bad time?
 
