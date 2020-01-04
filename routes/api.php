@@ -13,6 +13,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+
+$resources = [
+    'api/routes'
+];
+
+/**
+ * Mapping all the resources to be included on the routes.
+ */
+array_map(fn ($resource) => include_once __DIR__ . "/{$resource}.php", $resources);

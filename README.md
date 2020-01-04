@@ -1,78 +1,180 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# Requirements
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+- [Linux environment](https://www.linux.org/).
+- [Docker](https://www.docker.com/).
+- [PHP latest version, 7.4+](https://www.php.net/).
+- [MySQL latest version](https://www.mysql.com/).
+- [Yarn](https://yarnpkg.com/lang/en/) (recommend) or [NPM](https://www.npmjs.com/).
+- [Node](https://nodejs.org/en/).
 
-## About Laravel
+## Running by the easiest way (Docker)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Just type ```docker-compose up -d --build``` to build all the containers 
+in *detach* mode, but if you want to see the logs on your terminal you can type 
+``docker-compose up --build``, you don't need to pass ```--build``` tag on the command
+but I strong recommend to you to do that 
+to always work with the latest version and most stable version of the technologies 
+related on the repository.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+If you want to change any configuration about how you containers it'll gonna work you can 
+check the file [docker-compose.yml](./docker-compose.yml).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+If you want to change the PHP container to add, change the version (what I doesn't recommend)
+you can go to the [Dockerfile](./docker/php/Dockerfile).
 
-## Learning Laravel
+If you web service is returning 503 or 502 for some reason 
+as status code in http://localhost maybe you have a image 
+conflicting with the attached port or network, so I suggest to you 
+run ```docker ps``` to check which running containers 
+you're running at moment and 
+check which container is attached to a web port in 80 and 443 and stop 
+it and remove the network attached on it.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1 - Tip
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Sometimes the docker machine could have issues with your current containers and networks. 
+This is normal when you have a lot containers running at the same time using the same
+network interface sharing between them.
 
-## Laravel Sponsors
+ 
+If you have any database volumes I suggest to you backup them (if you not set up 
+your volumes locally) and remove all the conflicting containers based on their container
+ID which you can get by ``docker ps``.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+But if you want remove all without picking anything specific you can run the command:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+```docker system prune -a``` amd choose the option `Y`.
 
-## Contributing
+2 - Tip – composer issue.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+If you having issues when run ``docker-compose run --rm composer composer install | update 
+| require`` commands because of the latest versions of composer just run the command 
+``docker-compose run --rm composer composer <command> -vvv``.
 
-## Code of Conduct
+## For those don't want docker approach
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+You need install this packages:
+- [PHP 7.4](php.net) and the 
+[MySQL (latest preferaly)](https://www.mysql.com/).
+- [Yarn](https://yarnpkg.com/lang/en/) and the 
+[Node](https://nodejs.org/en/).
 
-## Security Vulnerabilities
+You OS need those libraries available to run the PHP:
+- libfreetype6-dev
+- libjpeg62-turbo-dev
+- libmcrypt-dev
+- libpng-dev
+- zlib1g-dev
+- libxml2-dev
+- libzip-dev
+- libonig-dev
+- graphviz
+- zip
+- unixodbc
+- unixodbc-dev
+- libgss3
+- odbcinst
+- locales
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+All the installation of this libraries you need to research and figure by your own 
+depending by your operational system.
 
-## License
+The PHP extensions need to be available and enabled:
+- pdo_mysql
+- gd
+- mysqli
+- zip 
+- opcache
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+After install all the libraries, software necessary and enable the PHP extensions you 
+ need to set up each dependencies of applications.
+
+First let's start by backend.
+
+
+Navigate by terminal to the folder [root](./).
+
+Once you inside the folder you need copy the [.env.example](.env.example) file 
+to a **.env** and change the configurations that suits your manual configurations. 
+If you're in a unix like environment you can just type ``cp .env.example .env``
+
+If you want to know how to configure .env files to work with the framework properly
+please visit the [Laravel](https://laravel.com/).
+
+Ok, after configure all the necessary needs to framework you need to following 
+commands:
+
+- ```composer install``` to install all the composer dependencies, if you still have 
+issues to install you can try to force install running by ``composer instal --ignore-platform-reqs``
+this command it'll install all libraries without checking your system requirements.
+
+- ```php artisan migrate --seed``` you need.   
+
+After running the above commands folder you need to 
+install the  application, don't forgot you need to 
+install all the requirements you need to run the command:
+
+- Run ``yarn install``.
+- After previously command run ``yarn start``.
+- Open a new tab and type [http//localhost:3000](http://localhost:3000).
+
+## Why yarn instead NPM?
+
+Fast, reliable and secure dependency management - this is the promise of Yarn, 
+the new dependency manager created by the engineers of Facebook.
+
+### Installing Yarn
+There are several ways of installing Yarn. If you have npm 
+installed, you can just install Yarn with npm:
+
+```npm install yarn --global```
+
+However, the recommended way by the Yarn team is to install it 
+via your native OS package manager 
+if you are on a Mac, probably it will be brew:
+
+```brew update```
+
+```brew install yarn```
+
+Yarn has a lot of performance and security improvements. 
+
+Offline cache
+When you install a package using Yarn (using ``yarn add <packagename>``), 
+it places the package on your disk. 
+During the next install, this package will be used instead of 
+sending an HTTP request to get the tarball from the registry.
+
+Your cached module will be put into ~/.yarn-cache, 
+and will be prefixed with the registry name, and post fixed with the modules version.
+
+This means that if you install the X.X.X version of express with Yarn, 
+it will be put into ~/.yarn-cache/npm-express-X.X.X.
+
+Deterministic Installs
+Yarn uses lockfiles (yarn.lock) and a deterministic install algorithm. 
+We can say goodbye to the "but it works on my machine" bugs. 
+And this is the best feature that we 
+have on yarn so far.
+Yarn comes with a handy license checker, which can become really powerful 
+in case you have to check the licenses of all the modules you depend on.
+
+Anyway you can use ``npm install `` command, but as per current date
+the npm packages I still facing issues of compatibility about "in my machine works".
+
+Use yarn and work in everywhere without headache (like [Docker](https://docker.com)). 
+
+## I still want to use npm?
+
+
+Well, you need change all the **yarn**  references in [package.json](./package.json) and 
+it's done.
+
+
+# Having troubles / bad time?
+
+[Open a issue](https://github.com/Messhias/temper/issues/new)
+
+# Author
+
+[Fabio William Conceição](https://github.com/messhias)

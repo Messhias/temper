@@ -1,5 +1,5 @@
 #!/bin/sh
-# by Fabio William Conceição
+# by Fabio William Conceição <messhias@gmail.com>
 
 # destination of the final changelog file
 OUTPUT_FILE=CHANGELOG.md
