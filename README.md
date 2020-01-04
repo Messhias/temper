@@ -98,14 +98,18 @@ The PHP extensions need to be available and enabled:
 After install all the libraries, software necessary and enable the PHP extensions you 
  need to set up each dependencies of applications.
 
-First let's start by backend.
+## Laravel
 
 
 Navigate by terminal to the folder [root](./).
 
 Once you inside the folder you need copy the [.env.example](.env.example) file 
 to a **.env** and change the configurations that suits your manual configurations. 
-If you're in a unix like environment you can just type ``cp .env.example .env``
+If you're in a unix like environment you can just type ``cp .env.example .env``.
+
+Also you need generate a key for the app as it is mandatory for Laravel framework. 
+You could done that running the command ``docker-compose run --rm php php artisan key:generate`` (for those which choose the
+docker approach) or ``php artisan key:generate``.
 
 If you want to know how to configure .env files to work with the framework properly
 please visit the [Laravel](https://laravel.com/).
@@ -117,15 +121,16 @@ commands:
 issues to install you can try to force install running by ``composer instal --ignore-platform-reqs``
 this command it'll install all libraries without checking your system requirements.
 
-- ```php artisan migrate --seed``` you need.   
-
 After running the above commands folder you need to 
 install the  application, don't forgot you need to 
 install all the requirements you need to run the command:
 
 - Run ``yarn install``.
 - After previously command run ``yarn start``.
-- Open a new tab and type [http//localhost:3000](http://localhost:3000).
+- Open a new tab and type [http//localhost](http://localhost).
+- If you want to check the browser sync options you could found the address of it on your terminal. 
+Usually it's [http://localhost:3000](http://localhost:3000), but if you port 3000 is being used by some 
+application the browser-sync it'll address in another port, so check always your terminal to get the accurate address. 
 
 ## Why yarn instead NPM?
 

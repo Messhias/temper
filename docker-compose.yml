@@ -29,7 +29,6 @@ services:
   composer:
     container_name: composer_temper
     image: composer:latest
-#    command: install -vvv
     command: composer install --ignore-platform-reqs # run the installation inside the context container
     volumes:
       - ./:/app
