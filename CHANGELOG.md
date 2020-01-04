@@ -1,4 +1,17 @@
-### removed GitHub CI since it is does not support PHP 7.4 yet (HEAD -> master)
+### Updates (HEAD -> phpunit)
+>Sat, 4 Jan 2020 11:19:12 +0400
+
+>Author: Fabio William Conceição (fabio@viame.ae)
+
+>Commiter: Fabio William Conceição (fabio@viame.ae)
+
+- Created unit tests.
+- Added the print screen of result.
+- Updated README.md
+
+
+
+### removed GitHub CI since it is does not support PHP 7.4 yet (origin/master, origin/dev, master, dev)
 >Sat, 4 Jan 2020 08:53:34 +0400
 
 >Author: Fabio William Conceição (fabio@viame.ae)
@@ -8,7 +21,7 @@
 
 
 
-### added image php fpm (origin/master)
+### added image php fpm
 >Sat, 4 Jan 2020 08:49:35 +0400
 
 >Author: Fabio William Conceição (fabio@viame.ae)

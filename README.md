@@ -170,6 +170,28 @@ Use yarn and work in everywhere without headache (like [Docker](https://docker.c
 Well, you need change all the **yarn**  references in [package.json](./package.json) and 
 it's done.
 
+## Running unit tests
+
+If you going trough the docker containers to run this application 
+it's very easy to run all the application unit tests.
+
+Go to the root of the application and type the command: 
+
+``docker-compose run --rm php ./vendor/bin/phpunit``
+
+If **you aren't doing by docker approach** you need first
+certify that you're using PHP 7.4 version at least since the 
+project use latest version and arrow functions and another features of
+PHP 7.4.
+
+If you're using previously versions of PHP all the test and project
+it'll fail. 
+
+# Result screenshot
+
+The project it'll result the result bellow:
+
+![Result image](./result.png)
 
 # Having troubles / bad time?
 

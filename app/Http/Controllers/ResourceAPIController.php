@@ -124,7 +124,8 @@ abstract class ResourceAPIController implements ResourceAPIInterface
                     $request->input($this->getKeyIdentifier())),
                 "success" => true,
                 "code" => 201,
-                "message" => "{$this->getPluralIdentifier()} - {$this->createMessage()}"
+                "message" => "{$this->getPluralIdentifier()} - {$this->createMessage()}",
+                "error" => false
                 ],
                 201
             );
@@ -156,7 +157,8 @@ abstract class ResourceAPIController implements ResourceAPIInterface
                 "message" => "{$this->getPluralIdentifier()} - {$this->foundMessage()}",
                 "data" => $this->getRepository()->find($id),
                 "success" => true,
-                "code" => 200
+                "code" => 200,
+                'error' => false,
             ], 200);
         }
         catch (GenericException $exception)
@@ -179,14 +181,14 @@ abstract class ResourceAPIController implements ResourceAPIInterface
         try
         {
             return response()->json([
-                    "data" => unserialize(
-                        str_replace(array('NAN;','INF;'),'0;',serialize($this->getRepository()->get()))
-                    ),
-                    "success" => true,
-                    "code" => 200,
-                    "message" => "{$this->getPluralIdentifier()} - {$this->foundMessage()}"
-                ], 200
-            );
+                "data" => unserialize(
+                    str_replace(array('NAN;','INF;'),'0;',serialize($this->getRepository()->get()))
+                ),
+                "success" => true,
+                "code" => 200,
+                "message" => "{$this->getPluralIdentifier()} - {$this->foundMessage()}",
+                'error' => false,
+            ], 200);
         }
         catch (GenericException $exception)
         {
@@ -219,6 +221,7 @@ abstract class ResourceAPIController implements ResourceAPIInterface
                     "success" => true,
                     "code" => 200,
                     "message" => "{$this->getPluralIdentifier()} - {$this->updateMessage()}",
+                    'error' => false,
                 ], 200
             );
         }
@@ -248,6 +251,7 @@ abstract class ResourceAPIController implements ResourceAPIInterface
                 "success" => true,
                 "code" => 200,
                 "message" => "{$this->getPluralIdentifier()} - {$this->deletedMessage()}",
+                'error' => false,
             ], 200);
         }
         catch (GenericException $exception)
@@ -277,6 +281,7 @@ abstract class ResourceAPIController implements ResourceAPIInterface
                 "message" => "{$this->getPluralIdentifier()} - {$this->genericMessage()}",
                 "code" => 200,
                 "success" => true,
+                'error' => false,
             ], 200);
         }
         catch (GenericException $exception)
@@ -309,6 +314,7 @@ abstract class ResourceAPIController implements ResourceAPIInterface
                     "success" => true,
                     "code" => 201,
                     "message" => "{$this->getSingularIdentifier()} - Complete",
+                    'error' => false,
                 ], 201);
         }
         catch (ValidationException $exception)
@@ -347,6 +353,7 @@ abstract class ResourceAPIController implements ResourceAPIInterface
                     "success" => true,
                     "code" => 200,
                     "message" => "{$this->getPluralIdentifier()} - {$this->foundMessage()}",
+                    'error' => false,
                 ], 200);
         }
         catch (\Exception $exception)
@@ -371,6 +378,7 @@ abstract class ResourceAPIController implements ResourceAPIInterface
                     "success" => true,
                     "code" => 200,
                     "message" => "{$this->getPluralIdentifier()} - {$this->foundMessage()}",
+                    'error' => false,
                 ]);
         }
         catch (\Exception $exception)
