@@ -1,4 +1,14 @@
-### removed the key generation for CI since it is already specified on .env.example (HEAD -> master)
+### changed the CI for PHP 7.4 image (HEAD -> master)
+>Sat, 4 Jan 2020 08:46:12 +0400
+
+>Author: Fabio William Conceição (fabio@viame.ae)
+
+>Commiter: Fabio William Conceição (fabio@viame.ae)
+
+
+
+
+### removed the key generation for CI since it is already specified on .env.example (origin/master)
 >Sat, 4 Jan 2020 08:41:54 +0400
 
 >Author: Fabio William Conceição (fabio@viame.ae)
@@ -8,7 +18,7 @@
 
 
 
-### CI name changed (origin/master)
+### CI name changed
 >Sat, 4 Jan 2020 08:40:12 +0400
 
 >Author: Fabio William Conceição (fabio@viame.ae)
