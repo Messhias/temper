@@ -1,11 +1,12 @@
 # Requirements
 
-- [Linux environment](https://www.linux.org/).
-- [Docker](https://www.docker.com/).
-- [PHP latest version, 7.4+](https://www.php.net/).
-- [MySQL latest version](https://www.mysql.com/).
-- [Yarn](https://yarnpkg.com/lang/en/) (recommend) or [NPM](https://www.npmjs.com/).
-- [Node](https://nodejs.org/en/).
+- [Linux environment](https://www.linux.org/) (recommend), if you choose windows maybe you'll have a bad time to install the PHP Extensions.
+- [Docker](https://www.docker.com/) (recommend), same reason as peer Linux Env..
+- [PHP latest version, 7.4+](https://www.php.net/) (MANDATORY), this project uses the latest features of PHP and the 7.4 is already stable and released, so please 
+if you're considering using previously versions of PHP is under you responsability to downgrade and set up the project.
+- [MySQL latest version](https://www.mysql.com/) (optional), as peer now the project isn't using the database, but if you choose go trough docker containers the MySQL with the latest version it'll added on the project, it's optional but I recommend it.
+- [Yarn](https://yarnpkg.com/lang/en/) (recommend) or [NPM](https://www.npmjs.com/), there's a topic explaining the reason of Yarn..
+- [Node](https://nodejs.org/en/), if you want to develop and compile the assests you need the Yarn or NPM, and both of them requires have node, so installing one of them (or both) automtically you'll have to install the Node.
 
 ## Running by the easiest way (Docker)
 
