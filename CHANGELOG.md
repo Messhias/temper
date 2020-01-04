@@ -1,4 +1,14 @@
-### added image php fpm (HEAD -> master)
+### removed GitHub CI since it is does not support PHP 7.4 yet (HEAD -> master)
+>Sat, 4 Jan 2020 08:53:34 +0400
+
+>Author: Fabio William Conceição (fabio@viame.ae)
+
+>Commiter: Fabio William Conceição (fabio@viame.ae)
+
+
+
+
+### added image php fpm (origin/master)
 >Sat, 4 Jan 2020 08:49:35 +0400
 
 >Author: Fabio William Conceição (fabio@viame.ae)
@@ -8,7 +18,7 @@
 
 
 
-### changed the CI for PHP 7.4 image (origin/master)
+### changed the CI for PHP 7.4 image
 >Sat, 4 Jan 2020 08:46:12 +0400
 
 >Author: Fabio William Conceição (fabio@viame.ae)
