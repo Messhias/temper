@@ -30,20 +30,17 @@ RUN ACCEPT_EULA=Y apt-get install -y \
     locales \
     && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen
 
+# SET UP C++ ENGINE ENHACEMENT.
 RUN ln -s /usr/lib/x86_64-linux-gnu/libsybdb.a /usr/lib/
 
-RUN docker-php-ext-install pdo_mysql
-
-
 #install some base extensions
+RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-configure gd \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install zip \
     && docker-php-source delete
-
-
 
 # copying custom php.ini configurations into the container.
 # OPCACHE FOR PHP

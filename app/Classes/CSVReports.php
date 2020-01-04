@@ -81,7 +81,6 @@ class CSVReports
             $this->setReport($report);
             $this->setUpReport($report);
         }
-
     }
 
     /**

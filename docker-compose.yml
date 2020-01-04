@@ -35,7 +35,7 @@ services:
 
   # pulling the database.
   database:
-    container_name: database
+    container_name: database_temper
     image: mysql:latest
     volumes:
       - /var/lib/mysql
@@ -48,7 +48,6 @@ services:
       - MYSQL_PASSWORD=docker
     security_opt:
       - seccomp:unconfined
-
 
   redis:
     container_name: redis_temper
