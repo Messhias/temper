@@ -36,9 +36,10 @@ trait GenericLogErrors
         error_log($exception);
 
         return response()->json([
+            "success" => false,
+            'error' => true,
             "data" => $exception,
             'message' => $message,
-            "success" => false,
             "code" => $status,
         ], $status);
     }
